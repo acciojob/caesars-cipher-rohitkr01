@@ -36,11 +36,14 @@ function rot13(encodedStr) {
   // Only change code below this line
 	let decodeStr= "";
 	for(let i=0;i<encodedStr.length;i++){
-		if(encodedStr[i]==undefind){
-			decodeStr += encodedStr[i];
+		for( let key in lookup){
+			if(key === encodedStr[i]){
+				decodeStr += lookup[encodedStr[i]];
+			}else{
+				decodeStr += encodedStr[i];
+			}
 		}
-		else decodeStr += lookup[encodedStr[i]];
-
+		
 		decodedArr.push(decodeStr);
 	}
 
